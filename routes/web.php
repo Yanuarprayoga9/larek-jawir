@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -24,13 +25,7 @@ use Inertia\Inertia;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
-Route::get('/', function () {
-
-    return Inertia::render('Homepage',[
-        "title"=>"YanuNews",
-        "description"=>"YanuNews adalah sebuah website yang menyediakan berita terkini dari berbagai sumber terpercaya",
-    ]);
-});
+Route::get('/',[NewsController::class,'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
