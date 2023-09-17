@@ -6,9 +6,10 @@ export default function Paginator({ meta }) {
     const current = meta.current_page;
     return (
         <div className="join">
-            <Link href={prev} className="join-item btn">«</Link>
+            {prev && <Link href={prev} className="join-item btn">«</Link>}
             <button className="join-item btn">{current}</button>
-            <Link href={next} className="join-item btn">»</Link>
+            {next && <Link href={next} className="join-item btn">»</Link>}
+            
         </div>
     )
 }

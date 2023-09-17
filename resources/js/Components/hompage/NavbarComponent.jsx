@@ -1,6 +1,8 @@
 import React from 'react'
 
-export default function NavbarComponent(props) {
+export default function NavbarComponent({ user }) {
+  console.log('user', user);
+
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -17,14 +19,23 @@ export default function NavbarComponent(props) {
             </div>
           </label>
           <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li><a>Settings</a></li>
-            <li><a>Logout</a></li>
+            {!user ?
+              <>
+                <li><a>register</a></li>
+                <li><a>login</a></li>
+              </> :
+              <>
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li><a>Settings</a></li>
+                <li><a>Logout</a></li>
+              </>
+            }
+
           </ul>
         </div>
       </div>
