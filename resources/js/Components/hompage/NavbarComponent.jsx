@@ -1,8 +1,7 @@
+import { Link } from '@inertiajs/react';
 import React from 'react'
 
 export default function NavbarComponent({ user }) {
-  console.log('user', user);
-
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -21,18 +20,19 @@ export default function NavbarComponent({ user }) {
           <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
             {!user ?
               <>
-                <li><a>register</a></li>
-                <li><a>login</a></li>
+                <li><Link href={route('register')}>register</Link></li>
+                <li><Link href={route('login')} >login</Link></li>
               </> :
               <>
+                <li><Link>Halo, {user.name} 👏</Link></li>
                 <li>
-                  <a className="justify-between">
-                    Profile
+                  <Link className="justify-between" href={route('dashboard')}>
+                    Dashboard
                     <span className="badge">New</span>
-                  </a>
+                  </Link>
                 </li>
-                <li><a>Settings</a></li>
-                <li><a>Logout</a></li>
+                <li><Link href={route('profile.edit')}>Settings</Link></li>
+                <li><Link href={route('logout')} method='post'>Logout</Link></li>
               </>
             }
 

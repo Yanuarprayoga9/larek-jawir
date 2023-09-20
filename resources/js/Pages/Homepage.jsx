@@ -3,8 +3,6 @@ import NavbarComponent from '../Components/hompage/NavbarComponent'
 import NewsList from '../Components/hompage/NewsList'
 import Paginator from '@/Components/hompage/Paginator';
 export default function Homepage(props) {
-  console.log(props);
-
   return (
     <div className='w-full my-5'>
       <NavbarComponent user={props.auth.user}/>

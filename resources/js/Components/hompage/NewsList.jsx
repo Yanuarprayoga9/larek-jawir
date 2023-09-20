@@ -1,8 +1,6 @@
 import React from 'react'
 
 export default function NewsList({ news }) {
-
-    console.log(news.data)
     return (
         news.data.map((item, index) => (
 
@@ -20,7 +18,6 @@ export default function NewsList({ news }) {
                     </div>
                 </div>
             </div>
-
         ))
     )
 }
